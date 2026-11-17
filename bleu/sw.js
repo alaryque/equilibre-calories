@@ -1,4 +1,4 @@
-const CACHE_NAME="equilibre-bleu-v2";
+const CACHE_NAME="equilibre-bleu-v3";
 const CORE=["./","./index.html","./manifest.webmanifest","./icon-blue-192.png","./icon-blue-512.png","./chat-bridge.js"];
 self.addEventListener("install",event=>{event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(CORE)));self.skipWaiting();});
 self.addEventListener("activate",event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith("equilibre-bleu-")&&key!==CACHE_NAME).map(key=>caches.delete(key)))));self.clients.claim();});
